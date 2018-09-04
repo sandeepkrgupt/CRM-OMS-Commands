@@ -1,0 +1,140 @@
+crmwrk1@illnqw2649:crmwrk1/CRM> who = to see active users
+---------------------------------------------------------
+crmwrk1@illnqw2649:crmwrk1/CRM> crmwls = For going to RIM files
+crmwrk1@illnqw2649:crmwrk1/JEE/CRMProduct/WLS/CRMDomain/CRMServer> ls -lrts = To see the files
+crmwrk1@illnqw2649:crmwrk1/JEE/CRMProduct/WLS/CRMDomain/CRMServer> less file_name to see the code
+shift . to go to end of file
+?xception to search the exception occurance
+
+-------------------------------------------------------------------------
+crmwrk1@illnqw2649:crmwrk1/CRM>crml = to go to logs
+crmwrk1@illnqw2101:crmwrk1/JEE/CRMProduct/logs/CRMDomain/CRMServer> ls -lrts
+select the web logic file or the required file
+crmwrk1@illnqw2101:crmwrk1/JEE/CRMProduct/logs/CRMDomain/CRMServer>less file_name
+shift . 
+?xception for seeing exception
+
+---------------------------------------------------------------------------------
+crmwrk1@illnqw2101:crmwrk1/JEE/CRMProduct/logs/CRMDomain/CRMServer> find .
+
+
+Winginsky@007#
+
+-----------------------------------------------------
+
+crmwrk1@illnqw2101:crmwrk1/JEE/CRMProduct/scripts/CRMDomain/CRMServer> psu = to see server (abp, crm , UIFServer) for USCC
+
+crmwrk1@illnqw2101:crmwrk1/JEE/CRMProduct/logs/ABSDomain/ABSServer> absp = to see server status (Up/Down)
+
+crmwrk1@illnqw2101:crmwrk1/JEE/CRMProduct/scripts/ABSDomain/ABSServer> kill -9 692 (PID)
+
+crmwrk1@illnqw2101:crmwrk1/JEE/CRMProduct/scripts/CRMDomain/CRMServer> crmr; crmt (restart and trail)
+------------------------------------------------
+
+abpwrk1@illnqw2101!USC:abpwrk1> tnsping USCDB2101 = to see below details
+
+Used TNSNAMES adapter to resolve the alias
+Attempting to contact (description=(address=(protocol=tcp)(host=illnqw2124)(port=1521))(connect_data=(service_name=USCDB2101)))
+OK (0 msec)
+
+where db connection sid is = host that is "illnqw2124"
+
+-----------------------------------------------------
+crmwrk1@illnqw2101:crmwrk1/JEE/CRMProduct/WLS/CRMDomain> find . -name '*X9*'  = to find all related files
+
+2101 rimClientConfig Path to change Server Details :-
+/users/gen/crmwrk1/JEE/CRMProduct/application/RIMDeployment/ARIMClient.war/web/rimClientConfig.xml  (Filezilla Server Path)
+command to check the path :-
+
+find . -name rimClientConfig.xml
+----------------------------------------------
+crmwrk1@illnqw2101:crmwrk1> find . -name rimClientConfig.xml
+./JEE/CRMProduct/application/RIMDeployment/ARIMClient.war/web/rimClientConfig.xml
+----------------------------------------
+crmwrk1@illnqw2101:crmwrk1/JEE/CRMProduct/WLS/CRMDomain> set = to see all details like (Host, User, CRM_DB_SERVER etc)
+or
+crmwrk1@illnqw2101:crmwrk1/JEE/CRMProduct/WLS/CRMDomain> tnsping USCDB2101 = for only specific details.
+--------------------------------------------
+crmwrk1@illnqw2101:crmwrk1/JEE/CRMProduct/WLS/CRMDomain> cd ~
+crmwrk1@illnqw2101:crmwrk1> .profile                 = to go to profile page which always shows when we login to Env putty.
+
+---------------------------
+rimClientConfig details -> go to your Env putty and execute below command for details
+less /users/gen/crmwrk1/JEE/CRMProduct/application/RIMDeployment/ARIMClient.war/web/rimClientConfig.xml 
+
+
+-----------------------
+
+getting DB Host name  type in log of Env
+
+tnsping USDB2729/environment
+
+
+---------------------------------------
+
+crmwrk1@illnqw2095:crmwrk1> crms
+crmwrk1@illnqw2095:crmwrk1/JEE/CRMProduct/scripts/CRMDomain/CRMServer> ll
+
+you will find below file lists :-
+total 80
+drwxr-xr-x 3 crmwrk1 aimsys  4096 Aug  7 12:18 ..
+-rwxr-xr-x 1 crmwrk1 aimsys   189 Aug  7 12:18 getDEbugUser.sh
+-rwxr-xr-x 1 crmwrk1 aimsys 13428 Aug  7 12:22 setCRMDomainEnv.sh_orig
+-rwxr-xr-x 1 crmwrk1 aimsys  9159 Aug  7 12:22 startCRMWebLogic.sh
+-rwxr-xr-x 1 crmwrk1 aimsys   958 Aug  8 12:41 pingCRMWebLogic.sh
+-rwxr-xr-x 1 crmwrk1 aimsys  2595 Aug  8 12:41 stopCRMWebLogic.sh
+-rwxr-xr-x 1 crmwrk1 aimsys 13444 Aug 10 15:32 setCRMDomainEnv.sh
+-rw-r--r-- 1 crmwrk1 aimsys 16384 Aug 20 10:45 .setCRMDomainEnv.sh.swo
+drwxr-xr-x 2 crmwrk1 aimsys  4096 Aug 20 10:47 .f
+Then,
+
+crmwrk1@illnqw2095:crmwrk1/JEE/CRMProduct/scripts/CRMDomain/CRMServer> vi setCRMDomainEnv.sh
+press insert key on PID or port number change the port number and hit below
+crmwrk1@illnqw2095:crmwrk1/JEE/CRMProduct/scripts/CRMDomain/CRMServer>wq = to save port number
+
+go to eclipse debug-configue and change port number to this.
+
+
+------------------------------------------
+Restart OMS SERVER
+
+illnqw2729:[18]/users/gen/omswrk1/JEE/config/oms/logs/OMSDomain/>omsk (Kill Server)
+illnqw2729:[18]/users/gen/omswrk1/JEE/config/oms/logs/OMSDomain/>omsc (Clean Cache)
+illnqw2729:[18]/users/gen/omswrk1/JEE/config/oms/logs/OMSDomain/>omsr (Restart Server)
+illnqw2729:[18]/users/gen/omswrk1/JEE/config/oms/logs/OMSDomain/>omst (Trail Logs )
+
+----------------------------
+Check OMS UP/DOWN
+illnqw2101:[18]/users/gen/omswrk1/JEE/config/oms/logs/OMSDomain/>omsv   
+Shift + g = go to end of file
+?running = to see  OMS is UP/DOWN
+
+--------------------------------
+------------------------- Checking ABP Server Status -------------------------------
+abpwrk1@illnqw2729!USC:abpwrk1> ibin
+You are working in Full mode: application server and security server combined
+The application server in the environment is Weblogic
+abpwrk1@illnqw2729!USC:abpwrk1> srvs
+abpwrk1@illnqw2729!USC:abpwrk1/J2EEServer/config/ABP-FULL/ABPServer/scripts> ll
+total 6112
+-rwxr-xr-x 1 abpwrk1 aimsys     515 Aug 12 12:39 application.init
+-rwxr-xr-x 1 abpwrk1 aimsys     515 Aug 12 12:39 application.start
+-rwxr-xr-x 1 abpwrk1 aimsys    2357 Aug 12 13:01 pingServer
+-rwxr-xr-x 1 abpwrk1 aimsys   10554 Aug 12 13:01 startServer
+-rwxr-xr-x 1 abpwrk1 aimsys    3435 Aug 12 13:01 stopServer
+-rwxr-xr-x 1 abpwrk1 aimsys    1782 Aug 12 13:01 forceShutdownServer
+-rwxr-xr-x 1 abpwrk1 aimsys     797 Aug 12 13:01 storeUserConfig.py
+-rwxr-xr-x 1 abpwrk1 aimsys     802 Aug 12 13:01 pingServer.py
+-rwxr-xr-x 1 abpwrk1 aimsys     904 Aug 12 13:01 stopServer.py
+-rwxr-x--- 1 abpwrk1 aimsys   12989 Aug 12 13:05 setenv.sh
+-rw-rw-r-- 1 abpwrk1 aimsys       0 Aug 17 08:08 config.log
+-rw-rw-r-- 1 abpwrk1 aimsys    4258 Aug 22 22:08 maainfo.help
+-rw-rw-r-- 1 abpwrk1 aimsys    4681 Aug 22 22:08 maainfo-q.log
+-rw-r--r-- 1 abpwrk1 aimsys  256000 Aug 23 10:29 log.log
+-rwxr-xr-x 1 abpwrk1 aimsys 5908282 Aug 30 18:33 wlst.dump
+-rw-rw-r-- 1 abpwrk1 aimsys       5 Aug 30 18:33 server.pid
+abpwrk1@illnqw2729!USC:abpwrk1/J2EEServer/config/ABP-FULL/ABPServer/scripts> pingServer
+DOWN
+
+
+
