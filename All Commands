@@ -19,19 +19,7 @@ crmwrk1@illnqw2101:crmwrk1/JEE/CRMProduct/logs/CRMDomain/CRMServer> find .
 
 
 Winginsky@007#
-
------------------------------------------------------
-
-crmwrk1@illnqw2101:crmwrk1/JEE/CRMProduct/scripts/CRMDomain/CRMServer> psu = to see server (abp, crm , UIFServer) for USCC
-
-crmwrk1@illnqw2101:crmwrk1/JEE/CRMProduct/logs/ABSDomain/ABSServer> absp = to see server status (Up/Down)
-
-crmwrk1@illnqw2101:crmwrk1/JEE/CRMProduct/scripts/ABSDomain/ABSServer> kill -9 692 (PID)
-
-crmwrk1@illnqw2101:crmwrk1/JEE/CRMProduct/scripts/CRMDomain/CRMServer> crmr; crmt (restart and trail)
 ------------------------------------------------
-
-abpwrk1@illnqw2101!USC:abpwrk1> tnsping USCDB2101 = to see below details
 
 Used TNSNAMES adapter to resolve the alias
 Attempting to contact (description=(address=(protocol=tcp)(host=illnqw2124)(port=1521))(connect_data=(service_name=USCDB2101)))
@@ -40,7 +28,7 @@ OK (0 msec)
 where db connection sid is = host that is "illnqw2124"
 
 -----------------------------------------------------
-crmwrk1@illnqw2101:crmwrk1/JEE/CRMProduct/WLS/CRMDomain> find . -name '*X9*'  = to find all related files
+crmwrk1@illnqw2101:crmwrk1/JEE/CRMProduct/WLS/CRMDofind . -name '*X9*'  = to find all related files
 
 2101 rimClientConfig Path to change Server Details :-
 /users/gen/crmwrk1/JEE/CRMProduct/application/RIMDeployment/ARIMClient.war/web/rimClientConfig.xml  (Filezilla Server Path)
@@ -58,6 +46,11 @@ crmwrk1@illnqw2101:crmwrk1/JEE/CRMProduct/WLS/CRMDomain> tnsping USCDB2101 = for
 crmwrk1@illnqw2101:crmwrk1/JEE/CRMProduct/WLS/CRMDomain> cd ~
 crmwrk1@illnqw2101:crmwrk1> .profile                 = to go to profile page which always shows when we login to Env putty.
 
+----------------------------
+Check OMS UP/DOWN
+illnqw2101:[18]/users/gen/omswrk1/JEE/config/oms/logs/OMSDomain/>omsv   
+Shift + g = go to end of file
+?running = to see  OMS is UP/DOWN
 ---------------------------
 rimClientConfig details -> go to your Env putty and execute below command for details
 less /users/gen/crmwrk1/JEE/CRMProduct/application/RIMDeployment/ARIMClient.war/web/rimClientConfig.xml 
@@ -71,6 +64,8 @@ tnsping USDB2729/environment
 
 
 ---------------------------------------
+Checking PORT Number for BE degug 
+
 
 crmwrk1@illnqw2095:crmwrk1> crms
 crmwrk1@illnqw2095:crmwrk1/JEE/CRMProduct/scripts/CRMDomain/CRMServer> ll
@@ -85,32 +80,70 @@ drwxr-xr-x 3 crmwrk1 aimsys  4096 Aug  7 12:18 ..
 -rwxr-xr-x 1 crmwrk1 aimsys  2595 Aug  8 12:41 stopCRMWebLogic.sh
 -rwxr-xr-x 1 crmwrk1 aimsys 13444 Aug 10 15:32 setCRMDomainEnv.sh
 -rw-r--r-- 1 crmwrk1 aimsys 16384 Aug 20 10:45 .setCRMDomainEnv.sh.swo
-drwxr-xr-x 2 crmwrk1 aimsys  4096 Aug 20 10:47 .f
+drwxr-xr-x 2 crmwrk1 aimsys  4096 Aug 20 10:47 .
 Then,
 
 crmwrk1@illnqw2095:crmwrk1/JEE/CRMProduct/scripts/CRMDomain/CRMServer> vi setCRMDomainEnv.sh
+
+Always see below code for debug Port Number : -
+if [ "${DEBUG_PORT}" = "" ] ; then
+        DEBUG_PORT="30101"
+        export DEBUG_PORT
+
+
 press insert key on PID or port number change the port number and hit below
 crmwrk1@illnqw2095:crmwrk1/JEE/CRMProduct/scripts/CRMDomain/CRMServer>wq = to save port number
 
 go to eclipse debug-configue and change port number to this.
 
 
-------------------------------------------
-Restart OMS SERVER
 
-illnqw2729:[18]/users/gen/omswrk1/JEE/config/oms/logs/OMSDomain/>omsk (Kill Server)
-illnqw2729:[18]/users/gen/omswrk1/JEE/config/oms/logs/OMSDomain/>omsc (Clean Cache)
-illnqw2729:[18]/users/gen/omswrk1/JEE/config/oms/logs/OMSDomain/>omsr (Restart Server)
-illnqw2729:[18]/users/gen/omswrk1/JEE/config/oms/logs/OMSDomain/>omst (Trail Logs )
+rim jar deploy path
+/users/gen/crmwrk1/JEE/CRMProduct/application/CRMDeployment/ClfyAgent/ClfyAgent.war/WEB-INF/lib
 
-----------------------------
-Check OMS UP/DOWN
-illnqw2101:[18]/users/gen/omswrk1/JEE/config/oms/logs/OMSDomain/>omsv   
-Shift + g = go to end of file
-?running = to see  OMS is UP/DOWN
 
---------------------------------
+--------------------------------------------------
+monitor@ilceusc032 
+Unix11!
+/mbbldproj/bld/ccbld/proj/c9crm3000V64OG/lib
+-----------------------------------------------
+clientkit swapnil jars deploy path 
+/users/gen/crmwrk1/JEE/CRMProduct/application/CRMDeployment/ClfyAgent/lib
+
+-------------------------------- Finding exception through Error code -------------------
+
+crmwrk1@illnqw2729:crmwrk1/JEE/CRMProduct/WLS/CRMDomain> grep -l '961028' * 
+grep: JEE: Is a directory
+RIMServer_en_Aug29_0.log.1
+RIM_SLA_illnqw2729_20180829_165753.csv
+grep: attachments: Is a directory
+grep: autodeploy: Is a directory
+grep: bin: Is a directory
+grep: config: Is a directory
+grep: console-ext: Is a directory
+grep: init-info: Is a directory
+grep: jsp_classes: Is a directory
+grep: lib: Is a directory
+grep: nodeManager: Is a directory
+grep: nodemanager: Is a directory
+grep: orchestration: Is a directory
+grep: original: Is a directory
+grep: pending: Is a directory
+grep: resources: Is a directory
+grep: security: Is a directory
+grep: servers: Is a directory
+grep: tmp: Is a directory
+
+
+crmwrk1@illnqw2729:crmwrk1/JEE/CRMProduct/WLS/CRMDomain> less RIMServer_en_Aug29_0.log.1 press enter
+
+
 ------------------------- Checking ABP Server Status -------------------------------
+
+abpwrk1@illnqw2101!USC:abpwrk1> tnsping USCDB2101 = to see below details
+
+
+
 abpwrk1@illnqw2729!USC:abpwrk1> ibin
 You are working in Full mode: application server and security server combined
 The application server in the environment is Weblogic
@@ -137,4 +170,39 @@ abpwrk1@illnqw2729!USC:abpwrk1/J2EEServer/config/ABP-FULL/ABPServer/scripts> pin
 DOWN
 
 
+------------------------------------------
+Restart OMS SERVER
+
+illnqw2729:[18]/users/gen/omswrk1/JEE/config/oms/logs/OMSDomain/>omsk (Kill Server)
+illnqw2729:[18]/users/gen/omswrk1/JEE/config/oms/logs/OMSDomain/>omsc (Clean Cache)
+illnqw2729:[18]/users/gen/omswrk1/JEE/config/oms/logs/OMSDomain/>omsr (Restart Server)
+illnqw2729:[18]/users/gen/omswrk1/JEE/config/oms/logs/OMSDomain/>omst (Trail Logs )
+
+----------------------------
+Check OMS UP/DOWN
+illnqw2101:[18]/users/gen/omswrk1/JEE/config/oms/logs/OMSDomain/>omsv   
+Shift + g = go to end of file
+?running = to see  OMS is UP/DOWN
+
+-------------------------------------
+
+Restart OMS Server New Fast way
+
+illnqw2729:[18]/users/gen/omswrk1/JEE/config/oms/logs/OMSDomain/> psu
+illnqw2729:[18]/users/gen/omswrk1/JEE/config/oms/logs/OMSDomain/>kill -9 -1
+
+When u see - Server stopped unexpectedly
+
+Ctrl+z
+Open putty again
+illnqw2729:[18]/users/gen/omswrk1/JEE/config/oms/logs/OMSDomain/>omsr
+omst
+
+ 
+------------- Select and Update Promos in OMS Table  -----------------------
+select * from ord9_virtual_promo_card where vpc_code in ('GGG','FFF'); 
+update ord9_virtual_promo_card set VPC_END_DATE = '18-FEB-18 00:00:00' where vpc_code in ('GGG','FFF');
+
+-------------------------------- see all logs status ------------------------------------
+crmwrk1@illnqw2651:crmwrk1/JEE/CRMProduct/logs/CRMDomain/CRMServer> allp (will show crm, abs and uif server status)
 
